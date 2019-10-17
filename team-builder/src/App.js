@@ -1,15 +1,23 @@
-import React from 'react';
-// import logo from './logo.svg';
-import './App.css';
-import daForm from './Components/Form';
+import React, { useState } from 'react';
+import { Form } from "./components/Form"
+import { TeamMate } from "./components/TeamMate"
+
 
 function App() {
+  const initialState = [
+    { name: " ", email: " ", role: " " },
+  ]
+  const [teammates, setTeamMates] = useState(initialState);
   return (
-    <div className="App">
-      <h1>Team Builder</h1>
-      <daForm />
+    <div className="App" >
+      <header className="App-header" >
+        <Form teammates={teammates} setTeamMates={setTeamMates} />
+        <TeamMate teammates={teammates} />
+
+      </header>
     </div>
   );
 }
+
 
 export default App;
